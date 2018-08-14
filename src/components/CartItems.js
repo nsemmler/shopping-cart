@@ -34,6 +34,8 @@ class CartItems extends Component {
   }
 
   render () {
+    { var totalPrice = 0.0 }
+    
     return <div className="container">
       <h1>Cart Items</h1>
       <div className="list-group">
@@ -45,9 +47,11 @@ class CartItems extends Component {
           </div>
         </div>
         { this.props.cart.map((item, i) => {
-          return <CartItem key={ i } product={ item.product } price={ (item.product.priceInCents / 100) } quantity={ item.quantity } />
+          totalPrice += (item.product.priceInCents / 100)
+          return <CartItem key={ i } product={ item.product } price={ `$${(item.product.priceInCents / 100)}` } quantity={ item.quantity } />
         }) }
       </div>
+      <p>Total Price: ${ totalPrice }</p>
       <AddItem products={ cartItemsList } addProduct={ this.addProduct } cart={ this.props.cart } />
     </div>
   }
