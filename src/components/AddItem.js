@@ -30,13 +30,13 @@ class AddItem extends Component {
     return (
       <form onSubmit={ this.onSubmit }>
         <div className="form-container">
-          <div>
+          <div className="form-group">
             <label htmlFor="addedProductQuantity">Quantity</label>
-            <input name="quantity" type="text" id="addedProductQuantity" placeholder="i.e. 1" onChange={ this.onChange } value={this.state.quantity}></input>
+            <input className="form-control" name="quantity" type="text" id="addedProductQuantity" placeholder="i.e. 1" onChange={ this.onChange } value={this.state.quantity}></input>
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="productToAdd">Products</label>
-            <select id="productToAdd" name="product" onChange={ this.onChange }>
+            <select className="form-control" id="productToAdd" name="product" onChange={ this.onChange }>
               { this.props.products.map((product, i) => {
                 return <option key={ i } name="product">{ product.name }</option>
               })}
